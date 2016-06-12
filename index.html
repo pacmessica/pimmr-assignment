@@ -5,33 +5,7 @@
     <title>Restaurants in Amsterdam</title>
   </head>
   <body>
-    <ul id="restaurants"></ul>
-    <script>
-    const restaurants = document.getElementById('restaurants');
-    const city = 'Amsterdam';
-    const start = 0;
-    const limit = 10;
-
-    fetch('https://api.pimmr.me', {
-      method: 'post',
-      headers: {
-        'content-type': 'application/json',
-      },
-      body: JSON.stringify({
-       jsonrpc: '2.0',
-       method: "restaurant.getHighestRated",
-       params: [city, start, limit],
-       id: 0,
-      })
-    })
-    .then(response => response.json())
-    .then(json => json.result.forEach(restaurant => {
-      const li = document.createElement('li');
-      li.textContent = restaurant.name;
-      restaurants.appendChild(li);
-      console.log(restaurant)
-    }))
-    .catch(err => console.error(err));
-    </script>
+    <div id="root"></div>
+    <script src="/app.js"></script>
   </body>
 </html>
