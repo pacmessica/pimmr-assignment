@@ -1,8 +1,6 @@
 import React from 'react'
-import ReactDOM from 'react-dom';
 
-
-class App extends React.Component {
+class Container extends React.Component {
   constructor() {
     super();
 
@@ -47,4 +45,4 @@ class App extends React.Component {
   }
 }
 
-module.exports = App;
+module.exports = Container;
