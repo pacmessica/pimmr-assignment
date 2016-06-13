@@ -1,4 +1,5 @@
 import React from 'react'
+import Listing from 'components/Listing/Listing'
 
 class Container extends React.Component {
   constructor() {
@@ -36,11 +37,7 @@ class Container extends React.Component {
   render() {
     return (
       <div>
-        <ul>
-        {this.state.restaurants.map(restaurant => {
-          return <li key={restaurant.id}>{restaurant.name}</li>
-        })}
-        </ul>
+        <Listing restaurants={this.state.restaurants} />
       </div>);
   }
 }
