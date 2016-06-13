@@ -4,7 +4,8 @@
   "description": "Penguin Pim has given you the task to build a small web frontend for his search to the perfect restaurant in Amsterdam. A backend is provided to you which returns the top restaurants in Amsterdam, an example is provided in `index.html`.",
   "main": "index.js",
   "scripts": {
-    "test":  "NODE_ENV=test ./node_modules/karma/bin/karma start karma.conf.js",
+    "test": "NODE_ENV=test ./node_modules/karma/bin/karma start karma.conf.js",
+    "test:watch": "npm run test -- --watch",
     "start": "NODE_ENV=development ./node_modules/.bin/hjs-dev-server",
     "build": "NODE_ENV=production webpack"
   },
@@ -63,6 +64,7 @@
     "sinon": "^1.17.4",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
-    "webpack": "^1.13.1"
+    "webpack": "^1.13.1",
+    "yargs": "^4.7.1"
   }
 }
