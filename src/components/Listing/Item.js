@@ -6,7 +6,7 @@ export class Item extends React.Component {
   render() {
 
     return (
-      <li key={this.props.restaurant.id} className={styles.container}>
+      <li key={this.props.restaurant.id} className={styles.item}>
         <img src={this.props.restaurant.photos[0].s3URL} className={styles.photo} />
         <div className={styles.textbox}>
           <p className={styles.title}>{this.props.restaurant.name.split(/\b/).map(word => {
