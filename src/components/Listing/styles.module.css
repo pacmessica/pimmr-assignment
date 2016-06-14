@@ -15,3 +15,9 @@
 .textbox {
   margin-left: 15px;
 }
+
+li:nth-child(even) {
+  h3 {
+    color: red;
+  }
+}
