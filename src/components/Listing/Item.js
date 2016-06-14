@@ -19,7 +19,7 @@ export class Item extends React.Component {
               })}
           </p>
           <p>{this.props.restaurant.cuisines.map(cuisine => {
-            return cuisine
+            return cuisine + " "
           })}</p>
         </div>
       </li>
