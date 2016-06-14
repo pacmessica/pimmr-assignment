@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  height: 100%;
+  overflow: auto;
+  padding-bottom: 60px;
+  margin: 0;
+  background-color: #ededed;
+}
+
+.photo {
+  width: 240px;
+  height: 240px;
+}
+
+.textbox {
+  margin-left: 15px;
+}
