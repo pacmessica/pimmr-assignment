@@ -2,15 +2,16 @@ import React from 'react'
 
 export class PaginationControl extends React.Component {
   showNext() {
-    this.props.updateRestaurants(this.props.index + 5);
+    var params = {startingIndex: this.props.index + 5}
+    this.props.updateRestaurants(params);
   }
 
   showPrev() {
-    this.props.updateRestaurants(this.props.index - 5);
+    var params = {startingIndex: this.props.index - 5 }
+    this.props.updateRestaurants(params);
   }
 
   render() {
-    console.log("props index is " + this.props.index)
     return (
       <div>
         { this.props.index >= 5 &&

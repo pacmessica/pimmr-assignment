@@ -9,14 +9,16 @@ class Container extends React.Component {
     this.state = {
       restaurants:[],
       city: 'Amsterdam',
-      index: 0
+      start: 0
     }
 
-    this.getRestaurants(0);
+    this.getRestaurants();
   }
 
-  getRestaurants(index) {
+  getRestaurants(params = {}) {
     var restaurants = []
+    const start = (params.startingIndex === undefined) ? 0 : params.startingIndex;
+    const city = (params.city === undefined) ? 'Amsterdam' : params.city;
     const limit = 5;
     fetch('https://api.pimmr.me', {
       method: 'post',
@@ -26,23 +28,22 @@ class Container extends React.Component {
       body: JSON.stringify({
        jsonrpc: '2.0',
        method: "restaurant.getHighestRated",
-       params: [this.state.city, index, limit],
+       params: [this.state.city, start, limit],
        id: 0,
       })
     })
     .then(response => response.json())
-    .then(json => {this.setState({restaurants: json.result, index: index})})
+    .then(json => {this.setState({restaurants: json.result, start: start, city: city})})
     .catch(err => console.error(err));
   }
 
   render() {
-    console.log("state index is " + this.state.index)
     return (
       <div>
         <Listing restaurants={this.state.restaurants} />
         <PaginationControl
           updateRestaurants={this.getRestaurants.bind(this)}
-          index={this.state.index} />
+          index={this.state.start} />
       </div>);
   }
 }
