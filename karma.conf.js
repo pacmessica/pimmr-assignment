@@ -11,7 +11,7 @@ module.exports = function(config) {
       'tests.webpack.js': ['webpack', 'sourcemap']
     },
     basePath: '',
-    frameworks: ['mocha', 'chai'],
+    frameworks: ['mocha', 'chai', 'sinon'],
     webpack: webpackConfig,
     webpackServer: {
       noInfo: true
@@ -22,7 +22,8 @@ module.exports = function(config) {
       'karma-chai',
       'karma-webpack',
       'karma-phantomjs-launcher',
-      'karma-spec-reporter'
+      'karma-spec-reporter',
+      'karma-sinon'
     ],
 
     exclude: [
