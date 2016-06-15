@@ -1,5 +1,6 @@
 import React from 'react'
 import Listing from 'components/Listing/Listing'
+import PaginationLink from 'components/PaginationLink/PaginationLink'
 
 class Container extends React.Component {
   constructor() {
@@ -38,6 +39,7 @@ class Container extends React.Component {
     return (
       <div>
         <Listing restaurants={this.state.restaurants} />
+        <PaginationLink />
       </div>);
   }
 }
