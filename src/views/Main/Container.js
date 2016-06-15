@@ -6,7 +6,9 @@ class Container extends React.Component {
     super();
 
     this.state = {
-      restaurants:[]
+      restaurants:[],
+      city: 'Amsterdam',
+      start: 0
     }
 
     this.getRestaurants();
@@ -14,9 +16,7 @@ class Container extends React.Component {
 
   getRestaurants(){
     var restaurants = []
-    const city = 'Amsterdam';
-    const start = 0;
-    const limit = 10;
+    const limit = 5;
     fetch('https://api.pimmr.me', {
       method: 'post',
       headers: {
@@ -25,7 +25,7 @@ class Container extends React.Component {
       body: JSON.stringify({
        jsonrpc: '2.0',
        method: "restaurant.getHighestRated",
-       params: [city, start, limit],
+       params: [this.state.city, this.state.start, limit],
        id: 0,
       })
     })
