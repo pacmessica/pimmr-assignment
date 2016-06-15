@@ -1,10 +1,12 @@
 import React, { PropTypes as T } from 'react'
 
 export class PaginationLink extends React.Component {
+  showNext() {
+    this.props.onClick();
+  }
   render() {
     return (
-      <div> See More Results
-      </div>
+      <button onClick={this.showNext.bind(this)}> See More Results</button>
     )
   }
 }

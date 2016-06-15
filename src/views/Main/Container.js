@@ -15,7 +15,7 @@ class Container extends React.Component {
     this.getRestaurants();
   }
 
-  getRestaurants(){
+  getRestaurants() {
     var restaurants = []
     const limit = 5;
     fetch('https://api.pimmr.me', {
@@ -35,11 +35,19 @@ class Container extends React.Component {
     .catch(err => console.error(err));
   }
 
+  showNextResults() {
+    var newStart = this.state.start + 5
+    this.setState({
+      start: newStart
+    })
+    this.getRestaurants()
+  }
+
   render() {
     return (
       <div>
         <Listing restaurants={this.state.restaurants} />
-        <PaginationLink />
+        <PaginationLink onClick={this.showNextResults.bind(this)}/>
       </div>);
   }
 }
