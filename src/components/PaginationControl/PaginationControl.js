@@ -12,7 +12,8 @@ export class PaginationControl extends React.Component {
   render() {
     return (
       <div>
-        <button onClick={this.showPrev.bind(this)}>Back</button>
+        { this.props.index >= 5 &&
+          <button onClick={this.showPrev.bind(this)}>Back</button> }
         <button onClick={this.showNext.bind(this)}>Next</button>
       </div>
     )
