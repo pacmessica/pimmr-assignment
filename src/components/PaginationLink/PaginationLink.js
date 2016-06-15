@@ -1,6 +1,6 @@
 import React, { PropTypes as T } from 'react'
 
-export class PaginationButton extends React.Component {
+export class PaginationLink extends React.Component {
   render() {
     return (
       <div> See More Results
@@ -9,4 +9,4 @@ export class PaginationButton extends React.Component {
   }
 }
 
-export default PaginationButton
+export default PaginationLink
