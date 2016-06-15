@@ -5,13 +5,11 @@ import Item from './Item'
 export class Listing extends React.Component {
   render() {
     return (
-      <div>
-        <ul>
+      <ul>
         {this.props.restaurants.map(restaurant => {
-          return <Item restaurant={restaurant}/>
+          return <Item key={restaurant.id} restaurant={restaurant}/>
         })}
-        </ul>
-      </div>
+      </ul>
     )
   }
 }

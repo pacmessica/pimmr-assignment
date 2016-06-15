@@ -1,0 +1,29 @@
+.item {
+  display: flex;
+  margin-bottom: 10px;
+  background-color: #ededed;
+}
+
+.photo {
+  width: 30%;
+  height: 30%;
+}
+
+.textbox {
+  margin-left: 15px;
+}
+
+.name {
+  font-size: 1.5em;
+}
+
+.cuisines {
+  font-size: 1em;
+}
+
+
+li:nth-child(even) {
+  .name {
+    color: red;
+  }
+}
