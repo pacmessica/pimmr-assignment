@@ -1,6 +1,6 @@
 import React from 'react'
 import Listing from 'components/Listing/Listing'
-import PaginationLink from 'components/PaginationLink/PaginationLink'
+import PaginationControl from 'components/PaginationControl/PaginationControl'
 
 class Container extends React.Component {
   constructor() {
@@ -43,11 +43,21 @@ class Container extends React.Component {
     this.getRestaurants()
   }
 
+  showPrevResults() {
+    var newStart = this.state.start - 5
+    this.setState({
+      start: newStart
+    })
+    this.getRestaurants()
+  }
+
   render() {
     return (
       <div>
         <Listing restaurants={this.state.restaurants} />
-        <PaginationLink onClick={this.showNextResults.bind(this)}/>
+        <PaginationControl
+          showNext={this.showNextResults.bind(this)}
+          showPrev={this.showPrevResults.bind(this)} />
       </div>);
   }
 }
