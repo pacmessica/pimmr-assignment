@@ -18,8 +18,8 @@ export class Item extends React.Component {
       <li key={this.props.restaurant.id} className={styles.item}>
         <img src={this.props.restaurant.photos[0].s3URL} className={styles.photo} />
         <div className={styles.textbox}>
-          <p className={styles.title}>{this.getRestaurantName()}</p>
-          <p>{this.props.restaurant.cuisines.map(cuisine => {
+          <p className={styles.name}>{this.getRestaurantName()}</p>
+          <p className={styles.cuisines}>{this.props.restaurant.cuisines.map(cuisine => {
             return cuisine + " "
           })}</p>
         </div>

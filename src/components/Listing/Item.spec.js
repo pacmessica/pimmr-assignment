@@ -20,4 +20,18 @@ describe('<Item />', () => {
     expect(wrapper.find(`.${styles.item}`))
       .to.have.length(1);
   });
+
+  it('renders the restaurant name', () => {
+   expect(wrapper.find(`.${styles.name}`).text()).
+    to.contain(restaurant.name);
+  });
+
+  it('renders the restaurant photo', () => {
+    assert.equal( (wrapper.find('img')).prop('src'), "pizza.jpeg");
+  });
+
+  it('renders the restaurant cuisines', () => {
+   expect(wrapper.find(`.${styles.cuisines}`).text()).
+    to.contain(restaurant.cuisines);
+  });
 })

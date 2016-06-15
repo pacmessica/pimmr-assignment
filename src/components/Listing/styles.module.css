@@ -13,8 +13,17 @@
   margin-left: 15px;
 }
 
+.name {
+  font-size: 1.5em;
+}
+
+.cuisines {
+  font-size: 1em;
+}
+
+
 li:nth-child(even) {
-  .title {
+  .name {
     color: red;
   }
 }
