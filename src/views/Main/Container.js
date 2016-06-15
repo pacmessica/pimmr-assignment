@@ -12,10 +12,10 @@ class Container extends React.Component {
       index: 0
     }
 
-    this.getRestaurants();
+    this.getRestaurants(0);
   }
 
-  getRestaurants() {
+  getRestaurants(index) {
     var restaurants = []
     const limit = 5;
     fetch('https://api.pimmr.me', {
@@ -26,38 +26,22 @@ class Container extends React.Component {
       body: JSON.stringify({
        jsonrpc: '2.0',
        method: "restaurant.getHighestRated",
-       params: [this.state.city, this.state.index, limit],
+       params: [this.state.city, index, limit],
        id: 0,
       })
     })
     .then(response => response.json())
-    .then(json => {this.setState({restaurants: json.result})})
+    .then(json => {this.setState({restaurants: json.result, index: index})})
     .catch(err => console.error(err));
   }
 
-  showNextResults() {
-    var newIndex = this.state.index + 5
-    this.setState({
-      index: newIndex
-    })
-    this.getRestaurants()
-  }
-
-  showPrevResults() {
-    var newIndex = this.state.index - 5
-    this.setState({
-      index: newIndex
-    })
-    this.getRestaurants()
-  }
-
   render() {
+    console.log("state index is " + this.state.index)
     return (
       <div>
         <Listing restaurants={this.state.restaurants} />
         <PaginationControl
-          showNext={this.showNextResults.bind(this)}
-          showPrev={this.showPrevResults.bind(this)}
+          updateRestaurants={this.getRestaurants.bind(this)}
           index={this.state.index} />
       </div>);
   }
