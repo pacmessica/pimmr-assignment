@@ -9,7 +9,7 @@ class Container extends React.Component {
     this.state = {
       restaurants:[],
       city: 'Amsterdam',
-      start: 0
+      index: 0
     }
 
     this.getRestaurants();
@@ -26,7 +26,7 @@ class Container extends React.Component {
       body: JSON.stringify({
        jsonrpc: '2.0',
        method: "restaurant.getHighestRated",
-       params: [this.state.city, this.state.start, limit],
+       params: [this.state.city, this.state.index, limit],
        id: 0,
       })
     })
@@ -36,17 +36,17 @@ class Container extends React.Component {
   }
 
   showNextResults() {
-    var newStart = this.state.start + 5
+    var newIndex = this.state.index + 5
     this.setState({
-      start: newStart
+      index: newIndex
     })
     this.getRestaurants()
   }
 
   showPrevResults() {
-    var newStart = this.state.start - 5
+    var newIndex = this.state.index - 5
     this.setState({
-      start: newStart
+      index: newIndex
     })
     this.getRestaurants()
   }
@@ -57,7 +57,8 @@ class Container extends React.Component {
         <Listing restaurants={this.state.restaurants} />
         <PaginationControl
           showNext={this.showNextResults.bind(this)}
-          showPrev={this.showPrevResults.bind(this)} />
+          showPrev={this.showPrevResults.bind(this)}
+          index={this.state.index} />
       </div>);
   }
 }
